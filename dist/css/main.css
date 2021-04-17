@@ -1,1 +1,25 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  background: white;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+header .scoreboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#gameboard {
+  margin: 0 auto;
+  height: 500px;
+  width: 500px;
+  background: #1d6a92;
+}
+/*# sourceMappingURL=main.css.map */

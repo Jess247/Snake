@@ -1,2 +1,22 @@
-main {
+@import "variables";
+
+body {
+  background: $secondary-color;
+  font-family: $main-font;
+}
+
+header {
+  text-align: center;
+
+  .scoreboard {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+#gameboard {
+  margin: 0 auto;
+  height: 500px;
+  width: 500px;
+  background: darken($dark-blue, 10%);
 }
