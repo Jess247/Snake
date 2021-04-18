@@ -1,8 +1,15 @@
 @import "variables";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: $secondary-color;
   font-family: $main-font;
+  text-align: center;
 }
 
 header {
@@ -15,7 +22,7 @@ header {
 }
 
 #gameboard {
-  margin: 0 auto;
+  margin: 2rem auto;
   // height: 500px;
   // width: 500px;
   // background: darken($dark-blue, 10%);
@@ -43,6 +50,16 @@ header {
   }
 }
 
+#controls {
+  display: flex;
+  justify-content: center;
+
+  button {
+    padding: 0.8rem;
+    margin: 1rem;
+  }
+}
+
 .popup {
   background: rgba($dark-blue, 0.9);
   color: $secondary-color;
@@ -58,15 +75,16 @@ header {
 
   h2 {
     font-size: 5rem;
-    line-height: 2rem;
+    margin-bottom: 5rem;
   }
 
   p {
     font-size: 1.6rem;
     padding-bottom: 1rem;
+    margin-bottom: 3rem;
   }
 
-  .replay_btn {
+  .replay {
     font-size: 3rem;
     background: $dark-blue;
     border: 1px solid darken($dark-blue, 10%);
