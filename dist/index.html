@@ -17,22 +17,26 @@
             </div>
         </header>
         <section id="gameboard">
-            
-
+            <div class="grid"></div>
         </section>
         <section id="controls">
+            <button type="button" class="up">&uarr;</button>
+            <button type="button" class="right">&rarr;</button>
+            <button type="button" class="down">&darr;</button>
+            <button type="button" class="left">&larr;</button>     
+        </section>
+        <section id="info">
             <div class="rules">
                 <h1>How to play</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, id tenetur! Veniam consequuntur quas est, dolorem quis quasi cum adipisci dignissimos numquam iure voluptatibus molestiae doloribus enim ducimus voluptates vero.</p>
             </div>
-            <div class="start">
-                <button type="button">Start Game</button>
-            </div>
-            <div class="pause">
-                <button type="button">Pause Game</button>
-            </div>
         </section>
+        <div class="popup">
+            <h2>Game Over</h2>
+            <p>You scored <span class="score">100</span> points</p>
+            <button type="button" class="replay_btn">Try Again</button>
+        </div>
     </main>
-    <script src=""></script>
+    <script src="game.js"></script>
 </body>
 </html>
