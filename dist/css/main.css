@@ -18,8 +18,72 @@ header .scoreboard {
 
 #gameboard {
   margin: 0 auto;
-  height: 500px;
+}
+
+#gameboard .grid {
   width: 500px;
-  background: #1d6a92;
+  height: 500px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#gameboard .grid div {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #1d6a92;
+}
+
+#gameboard .snake {
+  background: #dcedff;
+}
+
+#gameboard .apple {
+  background: #ff3c38;
+}
+
+.popup {
+  background: rgba(37, 137, 189, 0.9);
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.popup h2 {
+  font-size: 5rem;
+  line-height: 2rem;
+}
+
+.popup p {
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+}
+
+.popup .replay_btn {
+  font-size: 3rem;
+  background: #2589bd;
+  border: 1px solid #1d6a92;
+  border-radius: 3px;
+  padding: 1rem;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
