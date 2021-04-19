@@ -23,13 +23,47 @@ let speed = 0.8;
 let intervalTime = 0;
 let interval = 0;
 
+// controls
+
 // start and control events
 document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener('keyup',control);
+    document.addEventListener('keyup',function(event){
+        if(event.defaultPrevented) {
+            return;
+        }
+        switch(event.code) {
+            case "ArrowDown":
+              // move down
+              snakeDirection = +width;
+              break;
+
+            case "ArrowUp":
+              // move up
+              snakeDirection = -width;
+              break;
+
+            case "ArrowLeft":
+              // move left
+              snakeDirection = -1;
+              break;
+
+            case "ArrowRight":
+              // Handle "turn right"
+              snakeDirection = 1;
+              break;
+          }
+          refresh();
+
+  // Consume the event so it doesn't get handled twice
+  event.preventDefault();
+    }, true);
+
     createGameboard();
     startGame();
     replayBtn.addEventListener('click', replay);
 });
+
+
 
 // create gameboard
 function createGameboard() {
@@ -102,7 +136,7 @@ function checkForHits(gridCells) {
 function eatApple(gridCells, snakeTail) {
     if(gridCells[currentSnake[0]].classList.contains('apple')) {
         gridCells[currentSnake[0]].classList.remove('apple');
-        gridCells[snakeTail].classList.add(snake);
+        gridCells[snakeTail].classList.add('snake');
         currentSnake.push(snakeTail);
         randomApple(gridCells);
         score++;
@@ -121,22 +155,26 @@ function randomApple(gridCells) {
     gridCells[appleIndex].classList.add('apple');
 }
 
-// controls 
-function control(e) {
-    if(e.keycode === 39) {
-        // right
-        snakeDirection = 1;
-    } else if(e.keycode === 38) {
-        // up 10 divs
-        snakeDirection = -width;
-    } else if(e.keycode === 37) {
-        // left
-        snakeDirection = -1;
-    } else if(e.keycode === 40) {
-        // down 10 divs
-        snakeDirection = +width;
-    }
-}
+// // controls 
+// function control(e) {
+//     if(e === "ArrowRight") {
+//         // right
+//         console.log("right")
+//         snakeDirection = 1;
+//     } else if(e === "ArrowUp") {
+//         // up 10 divs
+//         console.log("up")
+//         snakeDirection = -width;
+//     } else if(e === "ArrowLeft") {
+//         // left
+//         console.log("left")
+//         snakeDirection = -1;
+//     } else if(e === "ArrowDown") {
+//         // down 10 divs
+//         console.log("down")
+//         snakeDirection = +width;
+//     }
+// }
 // btn controls
 upBtn.addEventListener('click', ()=>snakeDirection = -width);
 rightBtn.addEventListener('click', ()=>snakeDirection = -1);
