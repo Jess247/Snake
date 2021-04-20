@@ -16,6 +16,11 @@ header {
   text-align: center;
 }
 
+header h1 {
+  margin: 2rem;
+  font-size: 4rem;
+}
+
 header .scoreboard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -37,20 +42,23 @@ header .scoreboard {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  background: #2d2d2a;
 }
 
 #gameboard .grid div {
   width: 50px;
   height: 50px;
-  border: 1px solid #1d6a92;
+  border: 1px solid #a9d3ff;
 }
 
 #gameboard .snake {
   background: #2589bd;
+  border-radius: 20%;
 }
 
 #gameboard .apple {
   background: #ff3c38;
+  border-radius: 50%;
 }
 
 #controls {
@@ -67,13 +75,22 @@ header .scoreboard {
   margin: 1rem;
 }
 
+#info {
+  background: #2d2d2a;
+  color: white;
+  border-radius: 3px;
+  padding: 2rem;
+  max-width: 60vw;
+  margin: 2rem auto;
+}
+
 .popup {
   background: rgba(37, 137, 189, 0.9);
   color: white;
   width: 100vw;
   height: 100vh;
-  position: absolute;
-  top: 0;
+  position: fixed;
+  bottom: 0;
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;

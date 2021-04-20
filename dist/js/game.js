@@ -1,3 +1,10 @@
+// bugs: Only one apple can be collected the second apple is counted as hit
+// game starts right away even before a key is pressed
+// speed is not consistent, its lagging quite a bit
+// game should stop when hit, right now its hitting over and over again and throuwing an alert
+
+
+
 let scoreDisplay = document.querySelector('.score');
 let speedDisplay = document.querySelector('.speed');
 

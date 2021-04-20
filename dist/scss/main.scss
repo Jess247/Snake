@@ -15,6 +15,11 @@ body {
 header {
   text-align: center;
 
+  h1 {
+    margin: 2rem;
+    font-size: 4rem;
+  }
+
   .scoreboard {
     display: flex;
     justify-content: space-around;
@@ -23,9 +28,6 @@ header {
 
 #gameboard {
   margin: 2rem auto;
-  // height: 500px;
-  // width: 500px;
-  // background: darken($dark-blue, 10%);
 
   .grid {
     width: 500px;
@@ -33,20 +35,23 @@ header {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    background: $primary-color;
 
     div {
       width: 50px;
       height: 50px;
-      border: 1px solid darken($dark-blue, 10%);
+      border: 1px solid darken($light-blue, 10%);
     }
   }
 
   .snake {
     background: $dark-blue;
+    border-radius: 20%;
   }
 
   .apple {
     background: $apple-red;
+    border-radius: 50%;
   }
 }
 
@@ -60,13 +65,22 @@ header {
   }
 }
 
+#info {
+  background: $primary-color;
+  color: $secondary-color;
+  border-radius: 3px;
+  padding: 2rem;
+  max-width: 60vw;
+  margin: 2rem auto;
+}
+
 .popup {
   background: rgba($dark-blue, 0.9);
   color: $secondary-color;
   width: 100vw;
   height: 100vh;
-  position: absolute;
-  top: 0;
+  position: fixed;
+  bottom: 0;
   left: 0;
   display: flex;
   flex-direction: column;
