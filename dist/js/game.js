@@ -1,7 +1,8 @@
-// bugs: Only one apple can be collected the second apple is counted as hit
+// bugs: 
 // game starts right away even before a key is pressed
 // speed is not consistent, its lagging quite a bit
-// game should stop when hit, right now its hitting over and over again and throuwing an alert
+// apple appears underneath snake
+
 
 
 
@@ -18,6 +19,7 @@ let downBtn = document.querySelector('.down');
 let leftBtn = document.querySelector('.left');
 
 let popup = document.querySelector(".popup");
+let finalScore = document.querySelector('.final-score');
 let replayBtn = document.querySelector('.replay');
 
 // 
@@ -78,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // create gameboard
 function createGameboard() {
     popup.style.display = 'none';
-
+    scoreDisplay.innerHTML = score;
     for(let i = 0; i < 100; i++) {
         let div = document.createElement('div');
         grid.appendChild(div);
@@ -108,6 +110,7 @@ function moveOutCome() {
     if(checkForHits(gridCells)){
         // alert('you hit something');
         popup.style.display = 'flex';
+        finalScore.innerHTML = score;
         return clearInterval(interval);
     } else {
         moveSnake(gridCells);
@@ -165,26 +168,7 @@ function randomApple(gridCells) {
     gridCells[appleIndex].classList.add('apple');
 }
 
-// // controls 
-// function control(e) {
-//     if(e === "ArrowRight") {
-//         // right
-//         console.log("right")
-//         snakeDirection = 1;
-//     } else if(e === "ArrowUp") {
-//         // up 10 divs
-//         console.log("up")
-//         snakeDirection = -width;
-//     } else if(e === "ArrowLeft") {
-//         // left
-//         console.log("left")
-//         snakeDirection = -1;
-//     } else if(e === "ArrowDown") {
-//         // down 10 divs
-//         console.log("down")
-//         snakeDirection = +width;
-//     }
-// }
+
 // btn controls
 upBtn.addEventListener('click', ()=>snakeDirection = -width);
 rightBtn.addEventListener('click', ()=>snakeDirection = -1);
