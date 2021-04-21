@@ -32,6 +32,7 @@ let interval = 0;
 
 // controls
 
+
 // start and control events
 document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keyup',function(event){
@@ -59,10 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
               snakeDirection = 1;
               break;
           }
-          refresh();
+        //   refresh();
 
   // Consume the event so it doesn't get handled twice
   event.preventDefault();
+
+  
     }, true);
 
     createGameboard();
@@ -103,11 +106,11 @@ function startGame() {
 function moveOutCome() {
     let gridCells = document.querySelectorAll('.grid div');
     if(checkForHits(gridCells)){
-        alert('you hit something')
+        // alert('you hit something');
         popup.style.display = 'flex';
-        return clearInterval(interval)
+        return clearInterval(interval);
     } else {
-        moveSnake(gridCells)
+        moveSnake(gridCells);
     }
 }
 
@@ -150,7 +153,7 @@ function eatApple(gridCells, snakeTail) {
         scoreDisplay.textContent = score;
         clearInterval(interval);
         intervalTime = intervalTime * speed;
-        intervalTime = setInterval(moveOutCome, intervalTime);
+        interval = setInterval(moveOutCome, intervalTime);
     }
 }
 
