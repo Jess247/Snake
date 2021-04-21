@@ -1,7 +1,8 @@
-// bugs: Only one apple can be collected the second apple is counted as hit
+// bugs: 
 // game starts right away even before a key is pressed
 // speed is not consistent, its lagging quite a bit
-// game should stop when hit, right now its hitting over and over again and throuwing an alert
+// apple appears underneath snake
+
 
 
 
@@ -18,6 +19,7 @@ let downBtn = document.querySelector('.down');
 let leftBtn = document.querySelector('.left');
 
 let popup = document.querySelector(".popup");
+let finalScore = document.querySelector('.final-score');
 let replayBtn = document.querySelector('.replay');
 
 // 
@@ -31,6 +33,7 @@ let intervalTime = 0;
 let interval = 0;
 
 // controls
+
 
 // start and control events
 document.addEventListener('DOMContentLoaded', function() {
@@ -59,10 +62,12 @@ document.addEventListener('DOMContentLoaded', function() {
               snakeDirection = 1;
               break;
           }
-          refresh();
+        //   refresh();
 
   // Consume the event so it doesn't get handled twice
   event.preventDefault();
+
+  
     }, true);
 
     createGameboard();
@@ -75,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // create gameboard
 function createGameboard() {
     popup.style.display = 'none';
-
+    scoreDisplay.innerHTML = score;
     for(let i = 0; i < 100; i++) {
         let div = document.createElement('div');
         grid.appendChild(div);
@@ -89,7 +94,6 @@ function startGame() {
     // apple on random position
     let gridCells = document.querySelectorAll('.grid div');
     randomApple(gridCells);
-
     snakeDirection = 1;
     scoreDisplay.innerHTML = score;
     intervalTime = 1000;
@@ -103,11 +107,12 @@ function startGame() {
 function moveOutCome() {
     let gridCells = document.querySelectorAll('.grid div');
     if(checkForHits(gridCells)){
-        alert('you hit something')
+        // alert('you hit something');
         popup.style.display = 'flex';
-        return clearInterval(interval)
+        finalScore.innerHTML = score;
+        return clearInterval(interval);
     } else {
-        moveSnake(gridCells)
+        moveSnake(gridCells);
     }
 }
 
@@ -150,7 +155,7 @@ function eatApple(gridCells, snakeTail) {
         scoreDisplay.textContent = score;
         clearInterval(interval);
         intervalTime = intervalTime * speed;
-        intervalTime = setInterval(moveOutCome, intervalTime);
+        interval = setInterval(moveOutCome, intervalTime);
     }
 }
 
@@ -162,26 +167,7 @@ function randomApple(gridCells) {
     gridCells[appleIndex].classList.add('apple');
 }
 
-// // controls 
-// function control(e) {
-//     if(e === "ArrowRight") {
-//         // right
-//         console.log("right")
-//         snakeDirection = 1;
-//     } else if(e === "ArrowUp") {
-//         // up 10 divs
-//         console.log("up")
-//         snakeDirection = -width;
-//     } else if(e === "ArrowLeft") {
-//         // left
-//         console.log("left")
-//         snakeDirection = -1;
-//     } else if(e === "ArrowDown") {
-//         // down 10 divs
-//         console.log("down")
-//         snakeDirection = +width;
-//     }
-// }
+
 // btn controls
 upBtn.addEventListener('click', ()=>snakeDirection = -width);
 rightBtn.addEventListener('click', ()=>snakeDirection = -1);
