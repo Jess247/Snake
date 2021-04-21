@@ -94,7 +94,6 @@ function startGame() {
     // apple on random position
     let gridCells = document.querySelectorAll('.grid div');
     randomApple(gridCells);
-
     snakeDirection = 1;
     scoreDisplay.innerHTML = score;
     intervalTime = 1000;
